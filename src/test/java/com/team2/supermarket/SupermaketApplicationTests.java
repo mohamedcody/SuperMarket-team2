@@ -1,4 +1,4 @@
-package com.team2.supermaket;
+package com.team2.supermarket;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

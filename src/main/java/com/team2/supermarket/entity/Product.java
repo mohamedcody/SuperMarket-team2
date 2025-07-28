@@ -1,25 +1,24 @@
-package com.team2.supermaket.entity;
-
-
-import lombok.*;
+package com.team2.supermarket.entity;
+import com.team2.supermarket.dto.ProductDto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "product")
-@AllArgsConstructor
+@Document(collection = "products")
+@Data
 @NoArgsConstructor
-@Builder
-@Getter
-@Setter
-
+@AllArgsConstructor
 public class Product {
 
     @Id
     private String id;
     private String name;
     private String description;
-    private Double price;
-    private Integer quantity;
+    private double price;
     private String categoryId;
 
+
 }
+
