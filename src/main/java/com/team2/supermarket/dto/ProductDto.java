@@ -1,43 +1,45 @@
 package com.team2.supermarket.dto;
+import com.team2.supermarket.entity.BaseEntity;
+import com.team2.supermarket.entity.Category;
 import com.team2.supermarket.entity.Product;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ProductDto {
+@NoArgsConstructor
+@Data
+public class ProductDto extends BaseEntity {
 
-    private String id;
-
-    @NotBlank(message = "Product name is required")
-    @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters")
+    @NotBlank(message = "name is mandatory")
     private String name;
-
-    @NotBlank(message = "Description is required")
-    @Size(min = 5, max = 255, message = "Description must be between 5 and 255 characters")
     private String description;
+    @Min(value = 0 , message = "stock cant be less than 0 ")
+    private Integer stock;
+    @DecimalMin(value = "0.0",message = "price cant be less than 0 ")
+    private Double price;
 
-    @Min(value = 0, message = "Price must be greater than or equal to 0")
-    private double price;
+    private Category category;
 
-    @Min(value = 0, message = "Quantity must be greater than or equal to 0")
-    private int quantity;
+    public ProductDto(Product entity) {
+        this.setId(entity.getId());
+        this.setCreateBy(entity.getCreateBy());
+        this.setUpdateBy(entity.getUpdateBy());
+        this.setCreateAt(entity.getCreateAt());
+        this.setUpdateAt(entity.getUpdateAt());
 
-    @NotBlank(message = "Category ID is required")
-    private String categoryId;
+        this.name = entity.getName();
+        this.description = entity.getDescription();
+        this.stock = entity.getStock();
+        this.price = entity.getPrice();
 
-
-
-
-
-
-
-
+        if (entity.getCategoryId() != null && entity.getCategoryName() != null) {
+            this.category = new Category();
+            this.category.setId(entity.getCategoryId());
+            this.category.setName(entity.getCategoryName());
+        }
+    }
 }

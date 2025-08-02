@@ -10,11 +10,18 @@ public class NotFoundException extends RuntimeException  {
     @Setter
     HttpStatus status ;
 
+    private Object[] orgs;
+
+
     public NotFoundException(String massage){
         super(massage);
         this.status=HttpStatus.NOT_FOUND;
     }
 
+    public NotFoundException(String massage , Object[] orgs){
+        super(massage);
+        this.orgs=orgs;
+    }
 
     @Override
     public String toString() {

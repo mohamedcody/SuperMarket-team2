@@ -17,6 +17,7 @@ public class CustomExceptionHandler {
     MessageSource messageSource;
 
 
+
     @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
     public ResponseEntity<ErrorResponse> notFoundHandler(ChangeSetPersister.NotFoundException ex , Locale locale) {
         if(locale == null ){

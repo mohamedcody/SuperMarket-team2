@@ -1,4 +1,5 @@
 package com.team2.supermarket.entity;
+import com.fasterxml.jackson.databind.ser.Serializers;
 import com.team2.supermarket.enums.UserRoles;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
