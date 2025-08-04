@@ -21,22 +21,22 @@ public class ProductController {
     private CrudService<ProductDto, String> productService;
 
     @PostMapping
-    public String create(@RequestBody ProductDto dto) {
+    public String create(@RequestBody @Valid ProductDto dto) {
         return productService.create(dto);
     }
 
     @GetMapping("/{id}")
-    public ProductDto getById(@PathVariable String id) {
+    public ProductDto getById(@PathVariable @Valid String id) {
         return productService.getById(id);
     }
 
     @PutMapping("/{id}")
-    public String update(@PathVariable String id, @RequestBody ProductDto dto) {
+    public String update(@PathVariable  String id, @RequestBody @Valid ProductDto dto) {
         return productService.update(id, dto);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable @Valid String id) {
         productService.delete(id);
     }
 

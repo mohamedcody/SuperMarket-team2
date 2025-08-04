@@ -2,10 +2,7 @@ package com.team2.supermarket.controller;
 import com.team2.supermarket.dto.Credentials;
 import com.team2.supermarket.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -23,7 +20,6 @@ public class AuthController {
     public String register(@RequestBody Credentials credentials) {
         return service.register(credentials);
     }
-
 
 
 

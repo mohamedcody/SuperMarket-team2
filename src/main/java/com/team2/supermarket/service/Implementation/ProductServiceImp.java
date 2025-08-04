@@ -130,7 +130,7 @@ public class ProductServiceImp implements CrudService<ProductDto,String> {
 
         AggregationResults<ProductDto> results = mongoTemplate.aggregate(
                 aggregation,
-                "product", // اسم الكلكشن في MongoDB
+                "product",
                 ProductDto.class
         );
 
@@ -154,7 +154,7 @@ public class ProductServiceImp implements CrudService<ProductDto,String> {
         }
 
         if (criterias.isEmpty()) {
-            return new Criteria(); // هيرجع الكل لو مفيش فلترة
+            return new Criteria();
         }
 
         return new Criteria().andOperator(criterias.toArray(new Criteria[0]));

@@ -18,4 +18,6 @@ public interface CrudService <Dto,Id>{
     public List<Dto> getAll();
 
     PageResult search(Map<String,String> params);
+
+
 }

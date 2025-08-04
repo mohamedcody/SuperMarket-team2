@@ -7,7 +7,9 @@ import com.team2.supermarket.service.AuthService;
 import com.team2.supermarket.utils.JwtUtils;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AuthServiceImp implements AuthService {
 
 
